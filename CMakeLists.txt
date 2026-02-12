@@ -13,20 +13,12 @@ find_package(example_interfaces REQUIRED)
 # Add the executable
 add_executable(add_two_ints_client src/add_two_ints_client.cpp)
 
-# Link dependencies to the executable
-ament_target_dependencies(add_two_ints_client 
-  rclcpp 
-  example_interfaces
-)
+# Link dependencies
+ament_target_dependencies(add_two_ints_client rclcpp example_interfaces)
 
-# Install the executable to the lib folder
+# Install rules
 install(TARGETS
   add_two_ints_client
   DESTINATION lib/${PROJECT_NAME})
-
-# (Optional) Install the package.xml
-install(DIRECTORY include/
-  DESTINATION include/
-)
 
 ament_package()
